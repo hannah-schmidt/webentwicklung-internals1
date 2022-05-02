@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <link rel="stylesheet" href="addstudent.css">
+       <!-- <script defer src="login.js"></script>-->
+    </head>
+<body>
+    <ul>
+        <li><a href="admin.html">Home</a></li>
+        <li><a href="student.html">STUDENTS</a></li>
+        <li><a href="staff.html">STAFF</a></li>
+      </ul>
+    <div class="container" > 
+    <form id="addstudent" action=admin.html onsubmit="checkAdminCred()">
+        <h2>Add Student</h2>
+        <label>Student "ID"</label>
+        <input type="text" placeholder="Student_Id" id="adStudent_Id" required><br>
+        <label>First Name</label>
+        <input type="text" placeholder="First_Name" id="adFirst_Name" required><br>
+        <label>Last Name</label>
+        <input type="text" placeholder="Last_Name" id="adLast_Name"><br>
+        <label for="birthday">Date Of Birth</label>
+        <input type="date" id="dob" name="dob"><br>
+        <label>Gender</label>
+        <label>Female</label>
+        <input type="radio" name="gender" value="male">
+        <label>Male</label>
+        <input type="radio" name="gender" value="female"> 
+        <label>Diverse</label>
+        <input type="radio" name="gender" value="diverse"> <br>
+        
+        <label>Department</label>
+        <select name=”department” required>
+            <option>Department Selection</option>
+            <option value="fb1">FB1</option>
+            <option value="fb2">FB2</option>
+            <option value="fb2">FB3</option>
+            <option value="fb2">FB4</option>
+        </select><br>
+        <label>Email</label>
+        <input type="email" placeholder="Student_Id" id="adStudent_Id" required><br>
+        <button type="submit" >ADD</button>
+    </form>  
+    <form action="student.html">
+        <button type="submit">CANCEL</button>
+    </form>
+    </div>
+</body>

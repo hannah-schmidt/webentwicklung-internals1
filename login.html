@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <link rel="stylesheet" href="login.css">
+        <script defer src="login.js"></script>
+    </head>
+
+    <body>
+        <form id="adminLogin" action=admin.html onsubmit="checkAdminCred()">
+            <h2>Admin Login</h2>
+            <input type="text" placeholder="Username" id="adUsername">
+            <input type="password" placeholder="Password" id="adPassword">
+            <button type="submit" id="adLogin">Login</button>
+        </form>
+        <form id="staffLogin" action=staff.html onsubmit="checkStaffCred()">
+            <h2>Staff Login</h2>
+            <input type="text" placeholder="Username" id="stUsername">
+            <input type="password" placeholder="Password" id="stPassword">
+            <button type="submit" id="stLogin">Login</button>
+        </form>
+    </body>
+
+</html>
