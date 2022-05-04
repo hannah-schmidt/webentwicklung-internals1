@@ -1,1 +1,34 @@
-<p>staff</p>
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <link rel="stylesheet" href="staff.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+        <script type="text/javascript">
+            let count=0;
+            $(function() {
+                   $(".but").on("click",function(e) {
+                    e.preventDefault();
+                        if(count==0){
+                        $(".content").load("courses.html");
+                        ++count;
+                        }
+                        else if(count==1){
+                            $(".content").load("blankPage.html");
+                            --count;
+                        }
+                    }); 
+            });
+        </script>
+    </head>
+<body>
+    <header style="background-color: lightblue;">
+        <p color="white">The imaginary University</p>
+    </header>
+    <ul>
+      <button class="but">Courses</button>
+    </ul>
+    <div class="content" style="margin-left:25%;padding:1px 16px;">
+    </div>   
+</body>
+</html>

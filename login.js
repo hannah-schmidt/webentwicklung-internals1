@@ -1,36 +1,45 @@
 
-const errorMsg = "Login Credentials Incorrect"
+const errorMsg = "Login Credentials Incorrect";
 
-const adminCred = "Admin"
-const staffCred = "Staff"
+const correctAadmin = "Admin";
+const correctStaff = "Staff";
 
-adminLoginFailed = 0
-staffLoginFailed = 0 
+let adminLoginFailed = 0;
+let staffLoginFailed = 0; 
 
-function checkStaffCred() {
+let attempts=0;
+
+const staffB = document.getElementById("stLogin")
+const adminB = document.getElementById("adLogin")
+
+const countAttempts = () => {
+	if (++attempts >= 3) {
+		alert("Three Login attempts failed")
+		staffB.disabled =true;
+        adminB.disabled =true;
+	}
+	
+};
+
+const checkStaffCred = () => {
     const staffPassword = document.getElementById("stPassword").value
     const staffUsername = document.getElementById("stUsername").value
-    if(staffLoginFailed >= 3) {
-        alert("Three Login attempts failed")
-    }
-    else if(staffUsername == staffCred && staffPassword == staffCred && staffLoginFailed < 3) {
-        alert("yay")
-    } else {
-        alert(errorMsg)
-        staffLoginFailed ++
-    }
-}
 
-function checkAdminCred() {
+    if(staffUsername === correctStaff && staffPassword === correctStaff) 
+        return true;
+
+    alert(errorMsg)
+    countAttempts();
+    return false;
+    
+};
+
+const checkAdminCred = () => {
     const adminPassword = document.getElementById("adPassword").value
     const adminUsername = document.getElementById("adUsername").value
-    if(adminLoginFailed >= 3) {
-        alert("Three Login attempts failed")
-    }
-    else if(adminUsername == adminCred && adminPassword == adminCred) {
-        window.location="admin.html";
-    } else {
-        alert(errorMsg)
-        adminLoginFailed ++
-    }
-}
+    if(adminUsername === correctAadmin && adminPassword === correctAadmin)
+        return true; 
+    alert(errorMsg)
+    countAttempts();
+    return false;
+};

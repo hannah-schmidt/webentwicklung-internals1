@@ -1,3 +1,53 @@
-h1 {
+header {
     background-color: lightblue;
+}
+
+p {
+    color: white;
+}
+
+#container {
+    border: 3px solid #fff;
+    float:none;
+    padding: 30px;
+}
+
+#staffLogin {
+    width: 45%;
+    float: left;
+    border-style: solid;
+    border-width: thin;
+    border-color: lightgrey;
+}
+
+#adminLogin {
+    width: 45%;
+    float: right;
+    border-style: solid;
+    border-width: thin;
+    border-color: lightgrey;
+}
+
+.center{
+    text-align: center;
+}
+/* Full-width inputs */
+input[type=text], input[type=password] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: content-box;
+}
+  
+  /* Set a style for all buttons */
+button {
+    background-color: lightblue;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
 }

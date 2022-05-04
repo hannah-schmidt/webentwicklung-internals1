@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="courses.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                   $(".but").on("click",function(e) {
+                    var t = $(this).attr('id');
+                    e.preventDefault();
+                        if(t=="m"){
+                            $(".courses").load("math.html");
+                        }
+                        else if((t=="p")){
+                            $(".courses").load("prog.html");
+                        }
+                    }); 
+            });
+        </script>
+    </head>
+<body>
+    <div class="courses">
+        <ul>
+            <button class="but" id="m">Mathmatics</button>
+            <button class="but" id="p">Programming</button>
+            <button class="but" id="c">Computer Networks</button>
+            <button class="but" id="s">Software Engineering</button>
+            <button class="but" id="o">Operating Systems</button>
+            <button class="but" id="d">Databanks</button>
+        </ul>
+  </div>
+</body> 
+  

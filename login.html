@@ -4,21 +4,35 @@
     <head>
         <link rel="stylesheet" href="login.css">
         <script defer src="login.js"></script>
+        <header>
+            <p>The imaginary University</p>
+        </header>
     </head>
 
+
     <body>
-        <form id="adminLogin" action=admin.html onsubmit="checkAdminCred()">
-            <h2>Admin Login</h2>
-            <input type="text" placeholder="Username" id="adUsername">
-            <input type="password" placeholder="Password" id="adPassword">
-            <button type="submit" id="adLogin">Login</button>
+        <div class="container" id="container">
+        <form class="float-container" id=adminLogin  action=admin.html onSubmit="return checkAdminCred()">
+            <h2 class="center">Admin Login</h2>
+            <div class="center">
+                <label class="center" for="adUsername"><b>Username</b></label><br>
+                <input type="text" placeholder="Username" id="adUsername"><br>
+                <label for="adPassword"><b>Password</b></label><br>
+                <input type="password" placeholder="Password" id="adPassword"><br>
+                <button type="submit" id="adLogin">Login</button>
+            </div>
         </form>
-        <form id="staffLogin" action=staff.html onsubmit="checkStaffCred()">
-            <h2>Staff Login</h2>
-            <input type="text" placeholder="Username" id="stUsername">
-            <input type="password" placeholder="Password" id="stPassword">
-            <button type="submit" id="stLogin">Login</button>
+        <form class="float-container" id="staffLogin" action=staff.html onsubmit="return checkStaffCred()">
+            <h2 class="center">Staff Login</h2>
+            <div class="center">
+                <label for="stUsername"><b>Username</b></label><br>
+                <input type="text" placeholder="Username" id="stUsername"><br>
+                <label for="stPassword"><b>Password</b></label><br>
+                <input type="password" placeholder="Password" id="stPassword"><br>
+                <button type="submit" id="stLogin">Login</button>
+            </div>
         </form>
+        </div>
     </body>
 
 </html>
