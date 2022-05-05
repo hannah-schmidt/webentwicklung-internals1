@@ -1,6 +1,7 @@
-header {
-    background-color: lightblue;
-}
+.header {
+    background: lightblue;
+    color: white;
+  }
 
 p {
     color: white;
