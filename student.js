@@ -1,31 +1,43 @@
-var students=[];
+students=[ { id: "576465", fname: "Gina", lname: "Linetti", dob: "1999-02-02", gender: "female", dep: "fb2", email: "576465@htw-berlin.de", join: "2015-02-02" },{ id: "s0573288", fname: "Terry", lname: "Jeffords", dob: "1999-02-02", gender: "male", dep: "fb2", email: "576468@htw-berlin.dee", join: "2015-02-02" }];
 
 function studenttable(){
-    const stable=document.getElementById("stable")
     for(var i=0; i<students.length; i++){
-        trow=stable.insertRow(-1)
-            var cell=trow.insertCell(-1)
-            cell.innerHTML = students[i].id;
-            var cell=trow.insertCell(-1)
-            cell.innerHTML = students[i].fname;
-            var cell=trow.insertCell(-1)
-            cell.innerHTML = students[i].lname;
-            var cell=trow.insertCell(-1)
-            cell.innerHTML = students[i].dob;
-            var cell=trow.insertCell(-1)
-            cell.innerHTML = students[i].gender;
-            var cell=trow.insertCell(-1)
-            cell.innerHTML = students[i].dep;
-            var cell=trow.insertCell(-1)
-            cell.innerHTML = students[i].email;
-            var cell=trow.insertCell(-1)
-            cell.innerHTML = students[i].join;
+        console.log(students[i])
+    }
+    const stable=document.getElementById("stable")
+    for(var i=0; i<students.length; i++){ 
+        var row = stable.insertRow(1);
+        var cell7 = row.insertCell(-1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+        var cell6 = row.insertCell(5);
+        cell1.innerHTML = students[i].id;
+        cell2.innerHTML = students[i].fname;
+        cell3.innerHTML = students[i].lname;
+        cell4.innerHTML = students[i].dob;
+        cell5.innerHTML = students[i].gender;
+        cell6.innerHTML = students[i].dep;
+        cell7.innerHTML = students[i].email;
     }
 
 };
 
-function validDate(){
+function show(show, vanish) {
+    var form = document.getElementById(show);
+    form.style.display = '';
+    var table = document.getElementById(vanish);
+    table.style.display = 'none';
+    validDate();
+    studenttable();
+    document.getElementById('.main').innerHTML = document.getElementById(show).innerHTML;
+ 
+  }
 
+function validDate(){
+    console.log("huhu")
     var today = new Date(Date.now() - 864e5).toISOString().split('T')[0]
     document.getElementsByName("dob")[0].setAttribute('max',today)
 
@@ -39,13 +51,15 @@ function checkForm(){
     const dob= document.getElementsByName("dob")
     var seventeen =new Date(Date.now() - (536479200000)).toISOString().split('T')[0]
     var sixty =new Date(Date.now() - (1893456000000)).toISOString().split('T')[0]
-    if((seventeen==dob || sixty==dob)){
+    if((seventeen<ob || sixty>dob)){
         //alert("Invalid DOB")
         console.log("nonno")
         document.forms[0].reset()
         return false;
     }
     addStudent()
+    studenttable()
+    show('stable','add-form')
     return true;
 };
 
@@ -61,10 +75,6 @@ function addStudent() {
         join: document.getElementById("adStudent_join").value
     }
     students.push(student)
-    console.log(student)
-    for(var i=0; i<students.length; i++){
-        console.log(students[i])
-    }
     document.forms[0].reset()
 }
 

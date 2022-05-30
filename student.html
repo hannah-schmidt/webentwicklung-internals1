@@ -4,7 +4,7 @@
     <head>
         <link rel="stylesheet" href="student.css">
         <script src="student.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+       <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
         <script type="text/javascript">
             $(function() {
                    $(".square").on("click",function(e) {
@@ -18,7 +18,7 @@
                         //}
                     }); 
             });
-        </script>
+        </script> -->
 
     </head>
  <ul>
@@ -37,11 +37,9 @@
                 <form action="student.html">
                     <button id="flexU"class="square" type="submit">UPDATE</button>
                 </form>
-                <form action="addstudent.html">
-                    <button id="flexA" class="square" type="submit">ADD</button>
-                </form>
+                <button id="flexA" class="square" onclick="show('add-form','stable')">ADD</button>
             </div>  
-            <table id="stable" style="width:100%">
+            <table class="stable" id="stable" style="width:100%" >
                 <tr>
                    <th>Student ID</th>
                    <th>First Name</th>
@@ -51,44 +49,43 @@
                    <th>Department</th>
                    <th>Email</th>
                 </tr>
-                <tr>
-                    <td>576464</td>
-                    <td>Terry</td>
-                    <td>Jeffords</td>
-                    <td>29.05.1996</td>
-                    <td>Male</td>
-                    <td>FB1</td>
-                    <td>576464@htw-berlin.de</td>
-                 </tr>
-                 <tr>
-                    <td>576465</td>
-                    <td>Gina</td>
-                    <td>Linetti</td>
-                    <td>29.05.1999</td>
-                    <td>Female</td>
-                    <td>FB3</td>
-                    <td>576465@htw-berlin.de</td>
-                 </tr>
-                 <tr>
-                    <td>576467</td>
-                    <td>Amy</td>
-                    <td>Santiago</td>
-                    <td>29.05.1998</td>
-                    <td>Female</td>
-                    <td>FB4</td>
-                    <td>576467@htw-berlin.de</td>
-                 </tr>
-                 <tr>
-                    <td>576468</td>
-                    <td>Jake</td>
-                    <td>Peralta</td>
-                    <td>29.05.1999</td>
-                    <td>Male</td>
-                    <td>FB3</td>
-                    <td>576468@htw-berlin.de</td>
-                 </tr>
-
             </table>
 
       </div>
+
+      <div class="container" id="add-form" style=display:none > 
+        <form id="addstudent" onsubmit="return checkForm()" >
+            <h2>Add Student</h2>
+            <label>Student "ID"</label>
+            <input type="text" placeholder="Student_Id" id="adStudent_Id" required><br>
+            <label>First Name</label>
+            <input type="text" placeholder="First_Name" id="adFirst_Name" required><br>
+            <label>Last Name</label>
+            <input type="text" placeholder="Last_Name" id="adLast_Name"><br>
+            <label for="birthday">Date Of Birth</label>
+            <input type="date" id="dob" name="dob"><br>
+            <label>Gender</label>
+            <label>Female</label>
+            <input type="radio"  id="gender" name="gender" value="male">
+            <label>Male</label>
+            <input type="radio" id="gender" name="gender" value="female"> 
+            <label>Diverse</label>
+            <input type="radio" id="gender" name="gender" value="diverse"> <br>
+        
+            <label>Department</label>
+            <select id="department" name=”department” required>
+                <option>Department Selection</option>
+                <option value="fb1">FB1</option>
+                <option value="fb2">FB2</option>
+                <option value="fb2">FB3</option>
+                <option value="fb2">FB4</option>
+            </select><br>
+            <label>Email</label>
+            <input type="email" placeholder="Student_Id" id="adStudent_email" required><br>
+            <label for="join">Joining Date</label>
+            <input type="date" id="adStudent_join" name="join"><br>
+            <button type="submit" id="add">ADD</button>
+        </form>  
+        <button onclick="show('stable','add-form')">CANCEL</button>
+    </div>
   </body>

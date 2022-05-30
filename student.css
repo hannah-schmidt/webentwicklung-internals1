@@ -79,3 +79,26 @@ td{
   color: rgb(62, 62, 62);
   padding: 5px;
 }
+
+input{
+  margin:  2%;
+}
+
+select{
+  margin: 2%;
+}
+button{
+  margin: 2%;
+
+}
+
+.container{
+  width: 400px;
+  height: 400px;
+  text-align: center; 
+  border-style: solid; 
+  border-color: lightgray;
+  margin-right: 25%;
+  margin-left: 25%;
+  margin-top: 5%;
+}
