@@ -3,7 +3,22 @@
     
     <head>
         <link rel="stylesheet" href="student.css">
-        <style src="student.js"></style>
+        <script src="student.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                   $(".square").on("click",function(e) {
+                    var t = $(this).attr('id');
+                    e.preventDefault();
+                        if(t=="flexA"){
+                            $(".main").load("addstudent.html");
+                        }
+                        //else if((t=="p")){
+                        //    $(".courses").load("prog.html");
+                        //}
+                    }); 
+            });
+        </script>
 
     </head>
  <ul>
@@ -11,8 +26,8 @@
     <li><a href="student.html">STUDENTS</a></li>
     <li><a href="manageStaff.html">STAFF</a></li>
   </ul> 
-  <body>
-      <div>
+  <body onload="studenttable()">
+      <div class="main">
             <h1>All Students</h1>
             <div class="flex" id="one">
                 <div id="flex4"></div>
@@ -26,7 +41,7 @@
                     <button id="flexA" class="square" type="submit">ADD</button>
                 </form>
             </div>  
-            <table style="width:100%">
+            <table id="stable" style="width:100%">
                 <tr>
                    <th>Student ID</th>
                    <th>First Name</th>
