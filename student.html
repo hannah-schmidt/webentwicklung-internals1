@@ -30,6 +30,21 @@
       <div class="main">
             <h1>All Students</h1>
             <div class="flex" id="one">
+
+                <select id="department" name=”department” required>
+                    <option>Department</option>
+                    <option value="fb1">FB1</option>
+                    <option value="fb2">FB2</option>
+                    <option value="fb2">FB3</option>
+                    <option value="fb2">FB4</option>
+                </select>
+
+                <select id="semester" name=semester required>
+                    <option>Semester</option>
+                    <option value="summer">Summer</option>
+                    <option value="winter">Winter</option>
+                </select>
+
                 <div id="flex4"></div>
                 <form action="student.html">
                     <button id="flexD"class="square" type="submit">DELETE</button>
@@ -54,7 +69,7 @@
       </div>
 
       <div class="container" id="add-form" style=display:none > 
-        <form id="addstudent" onsubmit="return checkForm()" >
+        <form id="addstudent" onsubmit="checkForm(); return false" >
             <h2>Add Student</h2>
             <label>Student "ID"</label>
             <input type="text" placeholder="Student_Id" id="adStudent_Id" required><br>
@@ -84,7 +99,7 @@
             <input type="email" placeholder="Student_Id" id="adStudent_email" required><br>
             <label for="join">Joining Date</label>
             <input type="date" id="adStudent_join" name="join"><br>
-            <button type="submit" id="add">ADD</button>
+             <button type="submit" id="add">ADD</button> 
         </form>  
         <button onclick="show('stable','add-form')">CANCEL</button>
     </div>

@@ -1,7 +1,8 @@
-students=[ { id: "576465", fname: "Gina", lname: "Linetti", dob: "1999-02-02", gender: "female", dep: "fb2", email: "576465@htw-berlin.de", join: "2015-02-02" },{ id: "s0573288", fname: "Terry", lname: "Jeffords", dob: "1999-02-02", gender: "male", dep: "fb2", email: "576468@htw-berlin.dee", join: "2015-02-02" }];
+students=[ { id: "576465", fname: "Gina", lname: "Linetti", dob: "1999-02-02", gender: "female", dep: "fb2", email: "576465@htw-berlin.de", join: "2015-02-02" },{ id: "s0573288", fname: "Terry", lname: "Jeffords", dob: "1999-02-02", gender: "male", dep: "fb2", email: "576468@htw-berlin.de", join: "2015-02-02" }];
+document.getElementById("department").addEventListener("click", semester);
 
-function studenttable(){
-    for(var i=0; i<students.length; i++){
+function studenttable(array){
+    for(var i=0; i<array.length; i++){
         console.log(students[i])
     }
     const stable=document.getElementById("stable")
@@ -25,19 +26,25 @@ function studenttable(){
 
 };
 
+const department = ()=> {
+   const stu=students.filter(checkDep);
+};
+
+function checkDep(dep) {
+    return dep == document.getElementById("department").value;
+}
+
 function show(show, vanish) {
     var form = document.getElementById(show);
     form.style.display = '';
     var table = document.getElementById(vanish);
     table.style.display = 'none';
     validDate();
-    studenttable();
     document.getElementById('.main').innerHTML = document.getElementById(show).innerHTML;
- 
-  }
+    console.log("yea")
+}
 
 function validDate(){
-    console.log("huhu")
     var today = new Date(Date.now() - 864e5).toISOString().split('T')[0]
     document.getElementsByName("dob")[0].setAttribute('max',today)
 
@@ -47,20 +54,20 @@ function validDate(){
     document.getElementsByName("join")[0].setAttribute('min',joinmin)
 };
 
-function checkForm(){
-    const dob= document.getElementsByName("dob")
+checkForm  = function(e) {
+    e.preventDefault();
+    const dob= document.getElementsByName("dob").toISOString().split('T')[0]
     var seventeen =new Date(Date.now() - (536479200000)).toISOString().split('T')[0]
     var sixty =new Date(Date.now() - (1893456000000)).toISOString().split('T')[0]
-    if((seventeen<ob || sixty>dob)){
-        //alert("Invalid DOB")
-        console.log("nonno")
+    if((seventeen > dob || sixty < dob)){ //////////////////////
+        alert("Invalid DOB")
         document.forms[0].reset()
         return false;
     }
+    console.log(dob + " seventeen"+ seventeen+ " sixty"+ sixty)
     addStudent()
-    studenttable()
+    alert("oh")
     show('stable','add-form')
-    return true;
 };
 
 function addStudent() {
@@ -75,6 +82,7 @@ function addStudent() {
         join: document.getElementById("adStudent_join").value
     }
     students.push(student)
+    studenttable()
     document.forms[0].reset()
 }
 

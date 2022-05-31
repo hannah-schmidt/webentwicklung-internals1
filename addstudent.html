@@ -7,7 +7,7 @@
     </head>
 <body onload="validDate()">
     <div class="container" > 
-        <form id="addstudent" action=student.html onsubmit="return checkForm()" >
+        <form id="addstudent" onsubmit="return checkForm(); show('stable', 'add-form')" >
             <h2>Add Student</h2>
             <label>Student "ID"</label>
             <input type="text" placeholder="Student_Id" id="adStudent_Id" required><br>
@@ -39,8 +39,6 @@
             <input type="date" id="adStudent_join" name="join"><br>
             <button type="submit" id="add">ADD</button>
         </form>  
-        <form action="student.html">
-        <button type="submit">CANCEL</button>
-    </form> 
+        <button onclick="show('stable', 'add-form')">CANCEL</button>
     </div>
 </body>
