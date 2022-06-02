@@ -1,25 +1,11 @@
+<!-- datum prüfen, addstudent erscheint in tabelle, students liste kann gefilter werden-->
+
 <!DOCTYPE html>
 <html>
     
     <head>
         <link rel="stylesheet" href="student.css">
         <script src="student.js"></script>
-       <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
-        <script type="text/javascript">
-            $(function() {
-                   $(".square").on("click",function(e) {
-                    var t = $(this).attr('id');
-                    e.preventDefault();
-                        if(t=="flexA"){
-                            $(".main").load("addstudent.html");
-                        }
-                        //else if((t=="p")){
-                        //    $(".courses").load("prog.html");
-                        //}
-                    }); 
-            });
-        </script> -->
-
     </head>
  <ul>
     <li><a href="admin.html">Home</a></li>
@@ -30,17 +16,16 @@
       <div class="main">
             <h1>All Students</h1>
             <div class="flex" id="one">
-
-                <select id="department" name=”department” required>
-                    <option>Department</option>
+                <select id="departmentfilter" onchange="department()" >
+                    <option value="nothing">Department</option>
                     <option value="fb1">FB1</option>
                     <option value="fb2">FB2</option>
-                    <option value="fb2">FB3</option>
-                    <option value="fb2">FB4</option>
+                    <option value="fb3">FB3</option>
+                    <option value="fb4">FB4</option>
                 </select>
 
-                <select id="semester" name=semester required>
-                    <option>Semester</option>
+                <select id="semester" name=semester onchange="department()">
+                    <option value="nothing">Semester</option>
                     <option value="summer">Summer</option>
                     <option value="winter">Winter</option>
                 </select>
@@ -63,13 +48,14 @@
                    <th>Gender</th>
                    <th>Department</th>
                    <th>Email</th>
+                   <th>Joining Date</th>
                 </tr>
             </table>
 
       </div>
 
-      <div class="container" id="add-form" style=display:none > 
-        <form id="addstudent" onsubmit="checkForm(); return false" >
+      <form class="container" id="add-form" style=display:none > 
+        <div id="addstudent" >
             <h2>Add Student</h2>
             <label>Student "ID"</label>
             <input type="text" placeholder="Student_Id" id="adStudent_Id" required><br>
@@ -80,26 +66,25 @@
             <label for="birthday">Date Of Birth</label>
             <input type="date" id="dob" name="dob"><br>
             <label>Gender</label>
+            <input type="radio"   name="gender" value="male">
             <label>Female</label>
-            <input type="radio"  id="gender" name="gender" value="male">
+            <input type="radio"  name="gender" value="female"> 
             <label>Male</label>
-            <input type="radio" id="gender" name="gender" value="female"> 
-            <label>Diverse</label>
-            <input type="radio" id="gender" name="gender" value="diverse"> <br>
-        
+            <input type="radio" name="gender" value="diverse">
+            <label>Diverse</label><br>
+
             <label>Department</label>
             <select id="department" name=”department” required>
-                <option>Department Selection</option>
                 <option value="fb1">FB1</option>
                 <option value="fb2">FB2</option>
-                <option value="fb2">FB3</option>
-                <option value="fb2">FB4</option>
+                <option value="fb3">FB3</option>
+                <option value="fb4">FB4</option>
             </select><br>
             <label>Email</label>
             <input type="email" placeholder="Student_Id" id="adStudent_email" required><br>
             <label for="join">Joining Date</label>
             <input type="date" id="adStudent_join" name="join"><br>
-             <button type="submit" id="add">ADD</button> 
+             <button id="add" type="button" onclick="checkForm()">ADD</button> 
         </form>  
         <button onclick="show('stable','add-form')">CANCEL</button>
     </div>
