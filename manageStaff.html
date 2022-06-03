@@ -3,7 +3,7 @@
     
     <head>
         <link rel="stylesheet" href="student.css">
-        <style src="student.js"></style>
+        <script src="manageStaff.js"></script>
 
     </head>
  <ul>
@@ -11,37 +11,31 @@
     <li><a href="student.html">STUDENTS</a></li>
     <li><a href="manageStaff.html">STAFF</a></li>
   </ul> 
-  <body>
-      <div>
+  <body onload="stafftable()">
+      <div class="main">
             <h1>All Staff Members</h1>
             <div class="flex" id="one">
                 <div id="flex4"></div>
 
-                <select id="department" name=”department” required>
-                    <option>Department</option>
+                <select id="departmentfilter" onchange="department()">
+                    <option value="nothing">Department</option>
                     <option value="fb1">FB1</option>
                     <option value="fb2">FB2</option>
-                    <option value="fb2">FB3</option>
-                    <option value="fb2">FB4</option>
+                    <option value="fb3">FB3</option>
+                    <option value="fb4">FB4</option>
                 </select>
 
-                <select id="semester" name=semester required>
-                    <option>Semester</option>
+                <select id="semester" onchange="department()">
+                    <option value="nothing">Semester</option>
                     <option value="summer">Summer</option>
                     <option value="winter">Winter</option>
                 </select>
 
-                <form action="manageStaff.html">
-                    <button id="flexD"class="square" type="submit">DELETE</button>
-                </form>
-                <form action="manageStaff.html">
-                    <button id="flexU"class="square" type="submit">UPDATE</button>
-                </form>
-                <form action="addStaff.html">
-                    <button id="flexA" class="square" type="submit">ADD</button>
-                </form>
+                    <button id="flexD"class="square" onclick="show('add-form','stable')">DELETE</button>
+                    <button id="flexU"class="square" onclick="show('add-form','stable')">UPDATE</button>
+                    <button id="flexA" class="square" onclick="show('add-form','stable')">ADD</button>
             </div>  
-            <table style="width:100%">
+            <table class="stable" id="stable" style="width:100%">
                 <tr>
                    <th>Staff ID</th>
                    <th>First Name</th>
@@ -50,45 +44,44 @@
                    <th>Gender</th>
                    <th>Department</th>
                    <th>Email</th>
+                   <th>Joining Date</th>
                 </tr>
-                <tr>
-                    <td>576464</td>
-                    <td>Terry</td>
-                    <td>Jeffords</td>
-                    <td>29.05.1996</td>
-                    <td>Male</td>
-                    <td>FB1</td>
-                    <td>576464@htw-berlin.de</td>
-                 </tr>
-                 <tr>
-                    <td>576465</td>
-                    <td>Gina</td>
-                    <td>Linetti</td>
-                    <td>29.05.1999</td>
-                    <td>Female</td>
-                    <td>FB3</td>
-                    <td>576465@htw-berlin.de</td>
-                 </tr>
-                 <tr>
-                    <td>576467</td>
-                    <td>Amy</td>
-                    <td>Santiago</td>
-                    <td>29.05.1998</td>
-                    <td>Female</td>
-                    <td>FB4</td>
-                    <td>576467@htw-berlin.de</td>
-                 </tr>
-                 <tr>
-                    <td>576468</td>
-                    <td>Jake</td>
-                    <td>Peralta</td>
-                    <td>29.05.1999</td>
-                    <td>Male</td>
-                    <td>FB3</td>
-                    <td>576468@htw-berlin.de</td>
-                 </tr>
 
             </table>
 
       </div>
+
+      <form class="container" id="add-form" style=display:none > 
+        <div id="addstaff" >
+            <h2>Add Staff Member</h2>
+            <label>Staff "ID"</label>
+            <input type="text" placeholder="Staff_Id" id="adStaff_Id" required><br>
+            <label>First Name</label>
+            <input type="text" placeholder="First_Name" id="adFirst_Name" required><br>
+            <label>Last Name</label>
+            <input type="text" placeholder="Last_Name" id="adLast_Name"><br>
+            <label for="dob">Date Of Birth</label>
+            <input type="date" id="dob" name="dob"><br>
+            <label>Gender</label>
+            <input type="radio"   name="gender" value="male">
+            <label>Female</label>
+            <input type="radio"  name="gender" value="female"> 
+            <label>Male</label>
+            <input type="radio" name="gender" value="diverse">
+            <label>Diverse</label><br>
+
+            <label>Department</label>
+            <select id="department" name=”department” required>
+                <option value="fb1">FB1</option>
+                <option value="fb2">FB2</option>
+                <option value="fb3">FB3</option>
+                <option value="fb4">FB4</option>
+            </select><br>
+            <label>Email</label>
+            <input type="email" placeholder="Staff_Email" id="adStaff_email" required><br>
+            <label for="join">Joining Date</label>
+            <input type="date" id="adStaff_join" name="join"><br>
+             <button id="add" type="button" onclick="checkForm()">ADD</button> 
+        </form>  
+        <button onclick="show('stable','add-form')">CANCEL</button>
   </body>
